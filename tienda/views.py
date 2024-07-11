@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 
 # Creacion de la Vista - Inicio
-def inicio(request):
+def index(request):
     context = {}
     return render(request, 'sections/index.html', context)
 

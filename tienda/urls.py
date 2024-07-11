@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     # Invocaciones de las Vistas Principales
-    path('index', views.inicio, name='index'),
+    path('index', views.index, name='index'),
     path('contactos', views.contactos, name='contactos'),
     path('nosotros', views.nosotros, name='nosotros'),
     path('donaciones', views.donaciones, name='donaciones'),

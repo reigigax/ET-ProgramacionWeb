@@ -1,2 +1,7 @@
 /* Mensaje de Validacion de Conexion con el Archivo */
-console.log("Archivo JavaScript Tienda/Productos - Conectado")
+$(document).ready(function(){
+    console.log("Archivo JavaScript Externo Tienda/Productos - Conectado")
+    $.ajax({
+        
+    })
+});

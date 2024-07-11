@@ -1,30 +1,30 @@
 $(document).ready(function(){
     /* Mensaje de Validacion de Conexion con el Archivo */
-    console.log("Archivo JavaScript Externo - Links Navbar")
+    console.log("Archivo JavaScript Externo - Carba Dinamica Navbar")
     
     /*Navbar - Inicio*/
     $(".nav-inicio").click(function(){
-        $("#contenido").load("../../templates/sections/index.html");
+        $("#contenido").load("/tienda/index");
     });
 
     /*Navbar - Tienda*/
     $(".nav-tienda").click(function(){
-        $("#contenido").load("{%%}");
+        $("#contenido").load("/tienda/productos");
     });
 
     /*Navbar - Donaciones*/
     $(".nav-donaciones").click(function(){
-        $("#contenido").load("{% url 'donaciones' %}");
+        $("#contenido").load("/tienda/donaciones");
     });
 
     /*Navbar - Nosotros*/
     $(".nav-nosotros").click(function(){
-        $("#contenido").load("{% url 'nosotros' %}");
+        $("#contenido").load("/tienda/nosotros");
     });
 
     /*Navbar - Contacto*/
     $(".nav-contacto").click(function(){
-        $("#contenido").load("{% url 'contactos' %}");
+        $("#contenido").load("/tienda/contactos");
     });
 
 });
