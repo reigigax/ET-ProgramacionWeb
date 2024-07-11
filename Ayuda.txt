@@ -1,0 +1,68 @@
+- Archivos Static
+    ¿Como funciona?
+        El Atributo 'static' hace referencia a la ubicacion definida en el archivo de 'settings.py' del proyecto principal,
+        en este caso la ruta siendo la ubicacion fisica donde se encuantra nuestro proyecto django, en mi caso siendo
+
+            * esto puede cambiar dependiendo de donde abran / guarden el proyecto Django*
+            > "C:\Users\reigi\OneDrive\Desktop\PrograWeb\Proyectos-Paginas\ET-TiendaPeludita\static"
+
+    ¿Como Invocarlo/Usuarlo?
+        Primero, para que la vista presente el acceso a los archivos de la carpeta 'static' primero se debe declarar {% load static %}
+        Para invocar uno de estos archivos static se debe definir de la siguiente forma:
+        
+        Dentro de {%  %} ingresar la palabra clave  - static -  luego indicar la direccion del archivo dentro comillas simples '' 
+            {% static ' *ubicacion del archivo* ' %}
+    
+        Ej:
+            <img src=" {% static 'imgs/tienda/imagen.png' %} ">
+            <script scr=" {% static 'js/donaciones.js' %} "></script>
+            <link href=" {% static 'css/sections/index.css' %} " >
+
+    Esto como se puede ver se debe ingresar en las etiquetas que anteriormente definiamos la ubicacion fisica del archivo
+
+
+
+- Definir una Vista / Pagina
+    ¿Como Definirlo?
+        Debes tener tu vista/html creada y definirla en el archivo 'views.py' de la aplicacion del proyecto definiendola
+        de la siguiente manera:
+
+            Lo declaramos como funcion 'def' luego le ingresamos el nombre de la vista como 'inicio' luego entre parentesis escribimos 'request'
+                def *nombre de la vista o funcion*(request):
+
+            Luego dentro de la funcion debemos crear la variable 'context' la cual traera los datos que solicitemos (en este caso al ser solo una vista queda vacio)
+                context = {}
+
+            Por ultimo declararemos lo que retornara/devolvera esta funcion lo que en este caso sera la pagina html, esto lo hacemos declarando un
+                'return render(request, 'ubicacion fisica del archivo', context)'
+
+                *aclarar de que la ubicacion que se declara dentro de las comillas simples ya comienza de la carpeta 'templates' de la aplicacion osea ser si nuestro html
+                se encuentra en la carpeta 'sections' solo hay que declarar lo siguiente:
+                    'sections/tienda.html'
+                
+                si se encontrara fuera de la carpeta 'sections' seria:
+                    '*nombre carpeta*/*nombre archivo html*'
+
+                y si este se encontrara en la carpeta 'templates' solo se declararia el nombre del html:
+                    'base.html'
+
+            Ej de declaracion de la funcion:
+                def index ( request ):
+                    context = {}
+                    return render(request, 'sections/index.html', context)
+
+
+        Luego de declarar la funcion de la vista ahora vamos en el archivo 'urls.py' de la aplicacion donde debes definir la ruta que seguira Django y la funcion que
+        utilizara para mostrar la pagina:
+            
+            Primero se definira el nombre el cual quedara para buscarlo desde el navegador dentro de la funcion 'path'
+                path(' *nombre el cual se desea mostrar en el link del navegador* ')
+            
+            Luego definiremos que funcion utilizara del archivo de 'views.py' para cuando se escriba este nombre anteriormente definido en el link del navegador
+                path( '*nombre*', views.*nombre de la funcion* )
+
+            Por ultimo para terminar se declara nuevamente el nombre que se definio en el primer paso en esta caso dentro de la variable 'name'
+                path( '*nombre declarado*', views.*nombre funcion*, name='*nombre declarado*')
+
+                Ej:
+                    path('index', views.index, name='index'),
