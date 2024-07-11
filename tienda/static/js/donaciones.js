@@ -1,2 +1,4 @@
 /* Mensaje de Validacion de Conexion con el Archivo */
-console.log("Archivo JavaScript Donaciones - Conectado")
+$(document).ready(function(){
+    console.log("Archivo JavaScript Externo Donaciones - Conectado")
+});
