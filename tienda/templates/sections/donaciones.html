@@ -1,5 +1,6 @@
+{%extends 'base.html' %}
 {% load static %}
-
+{% block content%}
 <head>
     <!-- Conexion a CSS Principal - ( donaciones.css ) -->
     <link rel="stylesheet" href="{% static 'css/sections/donaciones.css' %}">
@@ -8,4 +9,107 @@
     <script src="{% static 'js/donaciones.js' %}"></script>
 </head>
 
-sections  /  donaciones . html - (donaciones)
+<div class="container mrg-top">
+    <img class="img-thumbnail img-fluid d-block w-100" src="{% static 'imgs/donaciones/Donaciones-Top.jpg' %}" alt="Donaciones Header">
+    <div class="container mrg-top">
+        <form class="row needs-validation" novalidate>
+            <div class="col-12 titulo-form-mrg-bott">
+                <h1 class="txt-font text-center titulo-fondo img-thumbnail">AYUDANOS A HACER DEL MUNDO UN LUGAR MEJOR PARA NUESTROS AMIGOS PELUDOS</h1>
+            </div>
+            <div class="col-6 form-mrg-bott">
+                <label for="nombreInput" class="form-label txt-font">Nombre Completo <span style="color: red;">*</span></label>
+                <input type="text" class="form-control txt-font" id="nombreInput" placeholder="Escribe tu Nombre" required>
+                <div class="invalid-feedback txt-font">
+                    Debe rellenar este campo
+                </div>
+            </div>
+
+            <div class="col-6 form-mrg-bott">
+                <label for="correoInput" class="form-label txt-font">Correo <span style="color: red;">*</span></label>
+                <input type="email" class="form-control txt-font" id="correoInput" placeholder="Escribe tu Correo" required>
+                <div class="invalid-feedback txt-font">
+                    El correo debe presentar el siguiente formato
+                    Ej: email@gmail.com
+                </div>
+            </div>
+            
+            <div class="col-4 form-mrg-bott">
+                <label for="donacionInput" class="form-label txt-font">Cantidad de Donacion <span style="color: red;">*</span></label>
+                <input type="number" class="form-control txt-font" id="donacionInput" placeholder="Ingresa la Cantidad a Donar" required>
+                <div class="invalid-feedback txt-font">
+                    La cantidad ingresada debe ser desde los $1000
+                </div>
+            </div>
+
+            <div class="col-4 form-mrg-bott">
+                <label for="pagoInput" class="form-label txt-font">Medio de Pago <span style="color: red;">*</span></label>
+                <select class="form-select form-control txt-font" id="pagoInput" required>
+                  <option selected disabled value="">Selecciona un Medio de Pago</option>
+                  <option>Credito</option>
+                  <option>Debito</option>
+                </select>
+                <div class="invalid-feedback txt-font">
+                    Debe seleccionar un Medio de Pago
+                </div>
+            </div>
+
+            <div class="col-4 form-mrg-bott">
+                <label for="numberInput" class="form-label txt-font">Teléfono <span style="color: rgb(90, 90, 90);">(Opcional)</span></label>
+                <input type="number" class="form-control txt-font" id="numberInput" placeholder="Ingresa tu Telefono">
+            </div>
+
+            <div class="col-12 form-mrg-bott">
+                <label for="direccionInput" class="form-label txt-font">Dirección <span style="color: red;">*</span></label>
+                <input type="text" class="form-control txt-font" id="direccionInput" placeholder="Escribe tu Dirección" required>
+                <div class="invalid-feedback txt-font">
+                    Debe rellenar este campo
+                </div>
+            </div>
+
+            <div class="col-12 form-mrg-bott">
+                <div class="form-check">
+                    <input type="checkbox" id="checkTerminos" class="form-check-input" required>
+                    <label for="checkTerminos" class="form-check-label txt-font">Acepto lo términos y Condiciones</label>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto col-12 txt-font mrg-top">
+                <button type="submit" class="btn btn-primary txt-font deg-txt">Donar</button>
+            </div>
+
+        </form>
+    </div>
+    
+    <!-- Texto/Slogan Promocional -->
+    <h1 class="txt-font text-center mrg-top titulo-fondo img-thumbnail">ORGANIAZCIONES SIN FINES DE LUCRO</h1>
+    <div class="container mrg-top">
+        <h3 class="txt-font text-center">Las organizaciones sin fines de lucro dedicadas a las mascotas trabajan incansablemente para proteger y mejorar la vida de los animales. A través de rescates, cuidados médicos, y programas de adopción, estas entidades se comprometen a proporcionar un hogar amoroso y seguro para cada mascota, fomentando una comunidad donde los animales y las personas puedan prosperar juntos </h3>
+    </div>
+    <br><br>
+    <div class="container-fluid">
+        <!-- Fundaciones e Organizaciones sin fines de lucro -->
+        <div class="row row-cols-1 row-cols-md-2 g-4" id="fundacion-display"></div>
+    </div>
+</div>
+<!-- script para la validacion del formulario -->
+<script>
+    (() => {
+        'use strict'
+    
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+    
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>
+{% endblock %}
