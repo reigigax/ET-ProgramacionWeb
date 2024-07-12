@@ -1,6 +1,6 @@
 $(document).ready(function(){
     /* Mensaje de Validacion de Conexion con el Archivo */
-    console.log("Archivo JavaScript Externo - Carba Dinamica Navbar")
+    console.log("Archivo JavaScript Externo - Carga Dinamica Navbar")
     
     /*Navbar - Inicio*/
     $(".nav-inicio").click(function(){
